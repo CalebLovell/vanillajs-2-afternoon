@@ -172,10 +172,12 @@
         if (!tone) return;
         const pianoKey = document.querySelector(`.pianoKey[data-key="${event.keyCode}"]`);
         tone.currentTime = 0;
-        pianoKey.pressed
+        pianoKey.classList.add("pressed");
+        setTimeout(function() {
+            pianoKey.classList.remove("pressed");
+        }, 300);    
         tone.play();
     });
-
 </script>
 
 </html>
